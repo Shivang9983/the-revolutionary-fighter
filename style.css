@@ -101,3 +101,98 @@ body{
   50%{ transform:translateY(-22px) translateX(-18px) scale(0.96); }
 }
 
+
+.portrait{
+  position:relative;
+  z-index:2;
+  width:min(34vw, 380px);
+  flex-shrink:0;
+}
+
+.portrait-frame{
+  position:relative;
+  border-radius:6px;
+  overflow:hidden;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,0.6));
+  border:1px solid rgba(201,168,118,0.3);
+  animation:portraitReveal 1.2s ease-out;
+}
+
+.portrait-frame img{
+  width:100%;
+  display:block;
+  filter:sepia(0.15) contrast(1.05);
+}
+
+.portrait-vignette{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 40%, transparent 55%, rgba(11,8,5,0.55) 100%),
+    linear-gradient(180deg, rgba(28,21,14,0.15) 0%, transparent 25%, transparent 75%, rgba(11,8,5,0.5) 100%);
+  pointer-events:none;
+}
+
+@keyframes portraitReveal{
+  from{ transform:translateY(-14px); opacity:0; }
+  to{ transform:translateY(0); opacity:1; }
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  text-align:left;
+  min-width:280px;
+  flex:1 1 380px;
+}
+
+.eyebrow{
+  font-family:var(--font-body);
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-size:0.78rem;
+  color:var(--sandstone);
+  margin-bottom:0.6rem;
+}
+
+.hero-content h1{
+  font-family:var(--font-display);
+  font-weight:900;
+  font-size:clamp(2.6rem, 7vw, 5.2rem);
+  letter-spacing:0.01em;
+  color:var(--cream);
+  text-shadow:0 4px 30px rgba(0,0,0,0.5);
+}
+
+.tagline{
+  margin-top:1rem;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(1rem, 2vw, 1.3rem);
+  color:var(--cream-dim);
+  line-height:1.5;
+}
+
+.scroll-cue{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.5rem;
+  margin-top:2.8rem;
+  color:var(--sandstone-dim);
+  text-decoration:none;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+}
+.scroll-cue .line{
+  width:1px; height:32px;
+  background:linear-gradient(180deg, var(--sandstone) 0%, transparent 100%);
+  animation:pulseLine 2.2s ease-in-out infinite;
+}
+@keyframes pulseLine{
+  0%,100%{ opacity:0.3; }
+  50%{ opacity:1; }
+}
