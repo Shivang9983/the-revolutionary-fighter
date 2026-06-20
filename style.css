@@ -1,0 +1,103 @@
+
+:root{
+  --ink: #15100b;
+  --ink-deep: #0b0805;
+  --sandstone: #c9a876;
+  --sandstone-dim: #8a7150;
+  --cream: #e8dcc4;
+  --cream-dim: #b8ac95;
+  --saffron: #ff9933;
+  --smoke-white: #f2f0e8;
+  --green: #138808;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, sans-serif;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--ink-deep);
+  color:var(--cream);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+}
+
+:focus-visible{
+  outline:2px solid var(--sandstone);
+  outline-offset:3px;
+}
+
+
+.grain{
+  position:fixed; inset:0; z-index:50;
+  pointer-events:none;
+  opacity:0.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, #2a2014 0%, transparent 70%),
+    linear-gradient(180deg, #1c150e 0%, var(--ink) 45%, var(--ink-deep) 100%);
+  overflow:hidden;
+  padding:8vh 5vw;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(2rem, 6vw, 5rem);
+  max-width:1200px;
+  width:100%;
+  flex-wrap:wrap;
+}
+
+.arches{
+  position:absolute; inset:0;
+  opacity:0.4;
+}
+.arches svg{ width:100%; height:100%; }
+.arches path{
+  fill:none;
+  stroke:var(--sandstone-dim);
+  stroke-width:2;
+  opacity:0.5;
+}
+
+.smoke-field{
+  position:absolute; inset:0;
+  z-index:1;
+  mix-blend-mode:screen;
+  opacity:0.55;
+}
+.smoke-field svg{ width:100%; height:100%; }
+.smoke{ opacity:0.5; }
+.smoke.saffron{ fill:var(--saffron); }
+.smoke.white{ fill:var(--smoke-white); }
+.smoke.green{ fill:var(--green); }
+
+.smoke.s1{ animation:drift1 14s ease-in-out infinite; }
+.smoke.s2{ animation:drift2 18s ease-in-out infinite; }
+
+@keyframes drift1{
+  0%,100%{ transform:translateY(0) translateX(0) scale(1); }
+  50%{ transform:translateY(-30px) translateX(15px) scale(1.06); }
+}
+@keyframes drift2{
+  0%,100%{ transform:translateY(0) translateX(0) scale(1); }
+  50%{ transform:translateY(-22px) translateX(-18px) scale(0.96); }
+}
+
