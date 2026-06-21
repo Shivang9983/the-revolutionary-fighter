@@ -233,3 +233,35 @@ body{
   line-height:1.85;
   color:var(--cream-dim);
 }
+/* ===== Quote section ===== */
+.quote-section{
+  padding:12vh 1.5rem;
+  background:var(--ink-deep);
+  border-top:1px solid rgba(201,168,118,0.12);
+  text-align:center;
+}
+.quote-inner{
+  max-width:680px;
+  margin:0 auto;
+}
+.quote-mark{
+  width:42px;
+  height:auto;
+  color:var(--sandstone-dim);
+  opacity:0.6;
+  margin-bottom:1rem;
+}
+.quote-text{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:600;
+  font-size:clamp(1.3rem, 3vw, 1.9rem);
+  line-height:1.5;
+  color:var(--cream);
+}
+.quote-attr{
+  margin-top:1.2rem;
+  font-size:0.85rem;
+  letter-spacing:0.03em;
+  color:var(--sandstone-dim);
+}
