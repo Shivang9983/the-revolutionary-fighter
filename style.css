@@ -349,3 +349,72 @@ body{
   color:var(--cream);
   border-color:var(--sandstone);
 }
+
+
+/* ===== In-page PDF reader overlay ===== */
+.reader-overlay{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(11,8,5,0.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:3vh 3vw;
+}
+.reader-overlay.open{
+  display:flex;
+}
+
+.reader-modal{
+  width:100%;
+  max-width:900px;
+  height:94vh;
+  background:var(--ink);
+  border:1px solid rgba(201,168,118,0.3);
+  border-radius:8px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+.reader-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.9rem 1.2rem;
+  background:var(--ink-deep);
+  border-bottom:1px solid rgba(201,168,118,0.2);
+}
+.reader-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1rem;
+  color:var(--cream);
+}
+.reader-close{
+  background:none;
+  border:none;
+  color:var(--sandstone);
+  font-size:1.6rem;
+  line-height:1;
+  cursor:pointer;
+  padding:0.2rem 0.5rem;
+  border-radius:4px;
+  transition:color 0.2s ease, background 0.2s ease;
+}
+.reader-close:hover{
+  color:var(--cream);
+  background:rgba(201,168,118,0.15);
+}
+.reader-close:focus-visible{
+  outline:2px solid var(--sandstone);
+}
+
+.reader-frame{
+  flex:1;
+  width:100%;
+  border:none;
+  background:var(--cream);
+}
