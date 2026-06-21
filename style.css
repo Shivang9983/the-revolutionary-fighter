@@ -265,3 +265,87 @@ body{
   letter-spacing:0.03em;
   color:var(--sandstone-dim);
 }
+
+/* ===== Reading / downloads section ===== */
+.downloads{
+  display:flex;
+  gap:1.2rem;
+  flex-wrap:wrap;
+  margin-top:2rem;
+}
+
+.dl-card{
+  flex:1 1 260px;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  padding:1.4rem 1.5rem;
+  border:1px solid rgba(201,168,118,0.35);
+  border-radius:6px;
+  background:rgba(201,168,118,0.05);
+  transition:border-color 0.25s ease, background 0.25s ease;
+}
+.dl-card:hover{
+  border-color:var(--sandstone);
+  background:rgba(201,168,118,0.1);
+}
+
+.dl-text{
+  display:flex;
+  flex-direction:column;
+  gap:0.3rem;
+}
+.dl-label{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:1.15rem;
+  color:var(--cream);
+}
+.dl-sub{
+  font-family:var(--font-body);
+  font-size:0.8rem;
+  color:var(--sandstone-dim);
+  letter-spacing:0.02em;
+}
+
+.dl-actions{
+  display:flex;
+  gap:0.6rem;
+  flex-wrap:wrap;
+}
+
+.dl-btn{
+  flex:1 1 auto;
+  text-align:center;
+  padding:0.65rem 1rem;
+  border-radius:4px;
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  font-weight:500;
+  letter-spacing:0.02em;
+  text-decoration:none;
+  cursor:pointer;
+  border:1px solid var(--sandstone);
+  background:var(--sandstone);
+  color:var(--ink-deep);
+  transition:background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.dl-btn:hover{
+  background:var(--cream);
+  border-color:var(--cream);
+  transform:translateY(-1px);
+}
+.dl-btn:focus-visible{
+  outline:2px solid var(--cream);
+  outline-offset:2px;
+}
+
+.dl-btn-outline{
+  background:transparent;
+  color:var(--sandstone);
+}
+.dl-btn-outline:hover{
+  background:rgba(201,168,118,0.15);
+  color:var(--cream);
+  border-color:var(--sandstone);
+}
