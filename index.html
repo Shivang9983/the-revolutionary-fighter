@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bhagat Singh — A Mind That Never Bent</title>
-
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
@@ -133,6 +137,32 @@
     </section>
   </main>
 
+  <audio id="bgmAudio" src="assets/Phir%20Se.mp3" loop></audio>
+
+  <div class="music-player" id="musicPlayer" aria-label="Audio controls">
+    <button class="player-toggle" id="playerToggle" aria-label="Play tribute music">
+      <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+    
+    <div class="player-info">
+      <span class="player-label">Phir Se</span>
+      <span class="player-status">Tribute Music</span>
+    </div>
+
+    <div class="visualizer" aria-hidden="true">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  
   <div class="reader-overlay" id="readerOverlay" aria-hidden="true">
     <div class="reader-modal">
       <div class="reader-bar">
