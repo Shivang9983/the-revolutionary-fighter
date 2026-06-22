@@ -476,3 +476,22 @@ footer p{
   margin:0 0.3rem;
   color:rgba(184,172,149,0.4);
 }
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .smoke.s1, .smoke.s2, .scroll-cue .line, .portrait-frame{
+    animation:none !important;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width:640px){
+  .hero-inner{ flex-direction:column; text-align:center; }
+  .portrait{ width:72vw; }
+  .hero-content{ text-align:center; }
+  .scroll-cue{ margin-left:auto; margin-right:auto; }
+  .hero{ align-items:center; padding:10vh 5vw; }
+  .panel{ padding:8vh 1.25rem; }
+  .closing{ padding:12vh 1.25rem; }
+}
