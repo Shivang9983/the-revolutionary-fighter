@@ -1,4 +1,6 @@
+<p align="center">
 # 🇮🇳 Bhagat Singh - Revolutionary Fighte
+</p>
 
 <p align="center">
   A tribute website dedicated to the life, thoughts, and revolutionary legacy of Shaheed Bhagat Singh.
