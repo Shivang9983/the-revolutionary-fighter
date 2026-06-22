@@ -1,8 +1,4 @@
-# 🇮🇳 Bhagat Singh - Revolutionary Fighter
-
-<p align="center">
-  <img src="./assets/homepage.png" alt="Bhagat Singh Website Banner" width="100%">
-</p>
+# 🇮🇳 Bhagat Singh - Revolutionary Fighte
 
 <p align="center">
   A tribute website dedicated to the life, thoughts, and revolutionary legacy of Shaheed Bhagat Singh.
@@ -69,12 +65,6 @@ Users can read the book online or download it directly from the website while ex
 ### Book Section
 
 ![Book Section](./screenshots/book-section.png)
-
-### Portrait Section
-
-![Portrait Section](./screenshots/portrait.png)
-
-> Replace the above screenshot paths with your actual screenshot locations.
 
 ---
 
