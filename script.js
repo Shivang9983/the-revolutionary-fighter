@@ -1,7 +1,4 @@
 
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const revealTargets = document.querySelectorAll('.panel-inner, .closing-inner');
 
@@ -23,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealTargets.forEach(el => observer.observe(el));
 
-  // Respect reduced motion preference: skip animated reveal, just show content
+
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
     revealTargets.forEach(el => {
@@ -33,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // In-page PDF reader: opens the selected essay in an overlay instead of leaving the page
+ 
   const overlay = document.getElementById('readerOverlay');
   const frame = document.getElementById('readerFrame');
   const titleEl = document.getElementById('readerTitle');
@@ -70,4 +67,73 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeReader();
   });
+
+ 
+  const audio = document.getElementById('bgmAudio');
+  const player = document.getElementById('musicPlayer');
+  const playerToggle = document.getElementById('playerToggle');
+  const playIcon = playerToggle.querySelector('.play-icon');
+  const pauseIcon = playerToggle.querySelector('.pause-icon');
+  const playerStatus = player.querySelector('.player-status');
+
+  let hasUserInteracted = false;
+  let isExplicitlyPaused = false;
+
+  function playAudio() {
+    audio.play()
+      .then(() => {
+        player.classList.add('playing');
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        playerStatus.textContent = 'Playing';
+        playerToggle.setAttribute('aria-label', 'Pause tribute music');
+      })
+      .catch(error => {
+        console.log('Autoplay prevented by browser, waiting for user interaction:', error);
+        playerStatus.textContent = 'Click to listen';
+      });
+  }
+
+  function pauseAudio() {
+    audio.pause();
+    player.classList.remove('playing');
+    playIcon.style.display = 'block';
+    pauseIcon.style.display = 'none';
+    playerStatus.textContent = 'Paused';
+    playerToggle.setAttribute('aria-label', 'Play tribute music');
+  }
+
+  function toggleAudio() {
+    if (audio.paused) {
+      isExplicitlyPaused = false;
+      playAudio();
+    } else {
+      isExplicitlyPaused = true;
+      pauseAudio();
+    }
+  }
+
+  playerToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleAudio();
+  });
+
+  
+  playAudio();
+
+ 
+  const handleFirstInteraction = () => {
+    if (!hasUserInteracted) {
+      hasUserInteracted = true;
+      if (!isExplicitlyPaused && audio.paused) {
+        playAudio();
+      }
+      
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    }
+  };
+
+  document.addEventListener('click', handleFirstInteraction);
+  document.addEventListener('touchstart', handleFirstInteraction);
 });
